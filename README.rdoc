@@ -1,0 +1,15 @@
+<b>Track Job Search</b>
+
+What was used to develop the application:
+  HTML, PHP, CSS,JQuery
+  XAMPP
+  MySQL database using phpMyAdmin online
+  Sublime Text Editor
+  
+  (More details can be found in the files committed)
+
+Summary:
+ This application will be used to help job seekers keep track to job roles 
+ on their job search to prevent double submittals to the same company
+ 
+ *More info about this application will be added added later 
