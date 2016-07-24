@@ -20,23 +20,21 @@ $query = mysql_query("select * from job_opportunities");
 <head>
     <title>Insert Data into MySQL DB</title>
     <!--Javascript-->
-    <!-- // <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <!-- // <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
 
      <!--Css Style Sheet-->
      <link rel="stylesheet" href="./css/style.css">
      <link rel="stylesheet" href="./css/jobInfoStyle.css">
-      <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"> -->
-
 </head>
 
 <body>
+
+<!--Button to toggle Job Form-->
 <button id="button">Run Effect</button>
 
 
-
-<section id="loginId" class="login">
+<!-- The Job Form-->
+<section class="jobInsertForm">
     <div class="titulo">Add a Job</div>
         <form action="#" method="post" enctype="application/x-www-form-urlencoded">
             <div class="insertSection">
@@ -56,12 +54,12 @@ $query = mysql_query("select * from job_opportunities");
 </section>
 
 
+<!--The job opportunity table-->
 <div id="tableDiv">
 <!--Table-->
 <table id="myTable" cellspacing='0'> 
-    <!-- cellspacing='0' is important, must stay -->
-
     <!-- Table Header -->
+    <div class="tableHeader">Your Job Opportunities</div>
     <thead>
         <tr>
             <th>Job Id</th>
@@ -109,7 +107,7 @@ x.setCustomValidity('Please enter company name');
 }
 
  $("#button").click(function(){
-        $("#loginId").toggle();
+        $(".jobInsertForm").toggle();
    });
 
 
