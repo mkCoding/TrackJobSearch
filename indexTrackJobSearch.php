@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Insert Data into MySQL DB</title>
-	<!--Javascript-->
+    <title>Insert Data into MySQL DB</title>
+    <!--Javascript-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-	 <!--Css Style Sheet-->
-	 <link rel="stylesheet" href="./css/style.css">
-	 <link rel="stylesheet" href="./css/jobInfoStyle.css">
+     <!--Css Style Sheet-->
+     <link rel="stylesheet" href="./css/style.css">
+     <link rel="stylesheet" href="./css/jobInfoStyle.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 <!-- The Job Form-->
 <section class="jobInsertForm">
     <div class="titulo">Add a Job</div>
-        <form action="insert.php" method="post" enctype="application/x-www-form-urlencoded">
+        <form id ="myForm" action="#" method="post" enctype="application/x-www-form-urlencoded">
             <div class="insertSection">
             <input type="text" name = 'jobId' required placeholder="Job Id" data-icon="U">
             <input type="text" name = 'company' required placeholder="Company" data-icon="x">
@@ -48,7 +48,8 @@
     <!-- PHP is pushing data into #myTable for table construction and population -->
 </table>
 </div>
-<input id="test" type ="button" value="testRefresh"/>
+
+<!-- <input id="test" type ="button" value="testRefresh"/> -->
 
 
 <script>
@@ -58,19 +59,40 @@ $(document).ready(function(){
   //auto load the table from the DB
   $("#myTable").load("autoTableRefresh.php"); 
 
-//this will reload the table when data is added
+    //this will reload the table when data is added
     $("#mySave").click(function(){
-        $("#myTable").load("autoTableRefresh.php"); 
-        //return false;
-    }); 
+       alert("hello");
 
+//insert data into DB
+$("#myForm").serialize();
+$.ajax({
+     type: "POST",
+     url: 'insert.php',
+     data: $("#myForm").serialize(),
+     success: function() {
+          //success message mybe... 
+          //refresh the table
+          $("#myTable").load("autoTableRefresh.php"); 
+     } 
 });
+}); 
 
 
 //clear all contents of the job form
 $("#myClear").click(function(){
     $(".insertSection input[type='text']").val(""); 
 });
+
+  //toggle the Job Form 
+ $("#button").click(function(){
+        $(".jobInsertForm").toggle();
+   });
+
+});
+
+
+
+
 
 
 function invalidJobIdFunct(x){
@@ -82,10 +104,6 @@ function invalidCompanyFunct(x){
         x.setCustomValidity('Please enter company name');
 }
 
-//toggle the Job Form 
- $("#button").click(function(){
-        $(".jobInsertForm").toggle();
-   });
 
 </script>
 
