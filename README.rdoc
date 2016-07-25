@@ -13,4 +13,5 @@ Summary:
  on their job search to prevent double submittals to the same company
  
  *More info about this application will be added added later 
-![Screenshot](TrackJobSearchImg.png)
+
+![ScreenShot](https://github.com/mkCoding/TrackJobSearch/blob/master/TrackJobSearchImg.PNG)
