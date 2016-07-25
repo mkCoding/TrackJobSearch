@@ -28,13 +28,15 @@
             <input type="text" name = 'status' placeholder="Status" data-icon="U">
             <input type="text" name = 'location' placeholder="Location" data-icon="x">
             <input type="text" name = 'recruiterCompany' placeholder="Recruiter/Staffing Agency" data-icon="x">
+</div>
+    </form>
 
+    <!-- buttons were not working when inside form tag -->
+    <!-- had to move them outside-->
     <div id="buttonDiv">
         <button id ="mySave" class="myButton">Save</button>
         <button id ="myClear" type ="button" class="myButton" >Clear</button>
     </div>
-</div>
-    </form>
 </section>
 
 
@@ -49,7 +51,7 @@
 </table>
 </div>
 
-<!-- <input id="test" type ="button" value="testRefresh"/> -->
+<input id="test" type ="button" value="testRefresh"/>
 
 
 <script>
