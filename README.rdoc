@@ -12,6 +12,7 @@ Summary:
  This application will be used to help job seekers keep track to job roles 
  on their job search to prevent double submittals to the same company
  
- *More info about this application will be added added later 
-
-![ScreenShot](https://github.com/mkCoding/TrackJobSearch/blob/master/TrackJobSearchImg.PNG)
+ *More info about this application will be added soon as I progress through the development
+ 
+ Until then a screen shot of the app can be seen below
+https://github.com/mkCoding/TrackJobSearch/blob/master/TrackJobSearchImg.jpg
