@@ -1,30 +1,13 @@
-
-<?php
-$hostname = "localhost";
-$username = "root";
-$password = "test";
-$databaseName ="test";
-
-// $connect = mysql_connect($hostname,$username,$password,$databaseName);
-// $query ="Select * from job_opportunities";
-// $result1 = mysql_query($query,$connect);
-
-$server = mysql_connect("localhost","root", "test");
-$db =  mysql_select_db("test",$server);
-$query = mysql_query("select * from job_opportunities");
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Insert Data into MySQL DB</title>
-    <!--Javascript-->
+	<title>Insert Data into MySQL DB</title>
+	<!--Javascript-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-     <!--Css Style Sheet-->
-     <link rel="stylesheet" href="./css/style.css">
-     <link rel="stylesheet" href="./css/jobInfoStyle.css">
+	 <!--Css Style Sheet-->
+	 <link rel="stylesheet" href="./css/style.css">
+	 <link rel="stylesheet" href="./css/jobInfoStyle.css">
 </head>
 
 <body>
@@ -36,14 +19,15 @@ $query = mysql_query("select * from job_opportunities");
 <!-- The Job Form-->
 <section class="jobInsertForm">
     <div class="titulo">Add a Job</div>
-        <form action="#" method="post" enctype="application/x-www-form-urlencoded">
+        <form action="insert.php" method="post" enctype="application/x-www-form-urlencoded">
             <div class="insertSection">
-            <input type="text" oninvalid="invalidJobIdFunct(this);" required title="Job Id required" placeholder="Job Id" data-icon="U">
-            <input type="text" oninvalid="invalidCompanyFunct(this);" required title="Company required" placeholder="Company" data-icon="x">
-            <input type="text" placeholder="Position" data-icon="U">
-            <input type="text" placeholder="Description" data-icon="x">
-            <input type="text" placeholder="Status" data-icon="U">
-            <input type="text" placeholder="Recruiter/Staffing Agency" data-icon="x">
+            <input type="text" name = 'jobId' required placeholder="Job Id" data-icon="U">
+            <input type="text" name = 'company' required placeholder="Company" data-icon="x">
+            <input type="text" name = 'position' placeholder="Position" data-icon="U">
+            <input type="text" name = 'description' placeholder="Description" data-icon="x">
+            <input type="text" name = 'status' placeholder="Status" data-icon="U">
+            <input type="text" name = 'location' placeholder="Location" data-icon="x">
+            <input type="text" name = 'recruiterCompany' placeholder="Recruiter/Staffing Agency" data-icon="x">
 
     <div id="buttonDiv">
         <button id ="mySave" class="myButton">Save</button>
@@ -60,58 +44,48 @@ $query = mysql_query("select * from job_opportunities");
 <table id="myTable" cellspacing='0'> 
     <!-- Table Header -->
     <div class="tableHeader">Your Job Opportunities</div>
-    <thead>
-        <tr>
-            <th>Job Id</th>
-            <th>Account Id</th>
-            <th>Company</th>
-            <th>Position</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Location</th>
-            <th>Recruiter/Staffing Agency</th>
-        </tr>
-    </thead>
-    <!-- Table Header -->
 
-    <!-- Table Body -->
-    <tbody>
-
-        <?php while($row = mysql_fetch_array($query)){
-    echo "<tr>";
-        echo"<td>".$row['job_id']."</td>";
-        echo"<td>".$row['account_id']."</td>";
-        echo"<td>".$row['company_name']."</td>";
-        echo"<td>".$row['position']."</td>";
-        echo"<td>".$row['description']."</td>";
-        echo"<td>".$row['status']."</td>";
-        echo"<td>".$row['location']."</td>";
-        echo"<td>".$row['recruiter_staffing']."</td>";
-    echo "</tr>";
-}
-?>
-    </tbody>
+    <!-- PHP is pushing data into #myTable for table construction and population -->
 </table>
 </div>
-<script>
+<input id="test" type ="button" value="testRefresh"/>
 
+
+<script>
+//Auto Refresh table
+$(document).ready(function(){
+
+  //auto load the table from the DB
+  $("#myTable").load("autoTableRefresh.php"); 
+
+//this will reload the table when data is added
+    $("#mySave").click(function(){
+        $("#myTable").load("autoTableRefresh.php"); 
+        //return false;
+    }); 
+
+});
+
+
+//clear all contents of the job form
 $("#myClear").click(function(){
     $(".insertSection input[type='text']").val(""); 
 });
 
+
 function invalidJobIdFunct(x){
-x.setCustomValidity('Please enter a Job Id');
+    if(x.value == '')
+        x.setCustomValidity('Please enter a Job Id');
 }
 function invalidCompanyFunct(x){
-x.setCustomValidity('Please enter company name');
+    if(x.value=='')
+        x.setCustomValidity('Please enter company name');
 }
 
+//toggle the Job Form 
  $("#button").click(function(){
         $(".jobInsertForm").toggle();
    });
-
-
-
 
 </script>
 

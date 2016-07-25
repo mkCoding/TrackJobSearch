@@ -8,8 +8,11 @@
 	$status = $_POST['status'];
 	$location = $_POST['location'];
 	$recruiterCompany = $_POST['recruiterCompany'];
-	$accountId = 3;
+	$accountId = 2;
 
+
+// mysql_query("INSERT INTO job_opportunities Values('$jobId','$accountId','$company','$position',
+// 	'$description','$status','$location','$recruiterCompany')");
 
 	if(mysql_query("INSERT INTO job_opportunities Values('$jobId','$accountId','$company','$position','$description','$status','$location','$recruiterCompany')"))
 		echo "Successfully Inserted";	
