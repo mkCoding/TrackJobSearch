@@ -9,7 +9,7 @@ What was used to develop the application:
   (More details can be found in the files committed)
 
 Summary:
- This application will be used to help job seekers keep track to job roles 
+ This application will be used to help job seekers keep track of job roles 
  on their job search to prevent double submittals to the same company
  
  *More info about this application will be added soon as I progress through the development
