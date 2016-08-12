@@ -5,6 +5,7 @@ $query = mysql_query("select * from job_opportunities");
 
  echo " <thead>
         <tr>
+            <th></th>
             <th>Job Id</th>
             <th>Account Id</th>
             <th>Company</th>
@@ -18,6 +19,7 @@ $query = mysql_query("select * from job_opportunities");
 
     while($row = mysql_fetch_array($query)){
     echo "<tr>";
+        echo"<td><button>delete</button>&nbsp;&nbsp;&nbsp;<button>edit</button></td>";
         echo"<td>".$row['job_id']."</td>";
         echo"<td>".$row['account_id']."</td>";
         echo"<td>".$row['company_name']."</td>";

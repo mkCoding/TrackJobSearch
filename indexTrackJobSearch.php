@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Insert Data into MySQL DB</title>
-    <!--Javascript-->
+  <title>Insert Data into MySQL DB</title>
+  <!--Javascript-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
-     <!--Css Style Sheet-->
-     <link rel="stylesheet" href="./css/style.css">
-     <link rel="stylesheet" href="./css/jobInfoStyle.css">
+   <!--Css Style Sheet-->
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="./css/jobInfoStyle.css">
 </head>
 
 <body>
@@ -23,9 +23,6 @@
 </div>
 </section>
 </div>
-
-
-
 
 
 <!-- The Job Form-->
@@ -103,6 +100,10 @@ $("#myClear").click(function(){
         $("#jIF").toggle();
    });
 
+$("#deleteModifyButton").click(function(){ 
+        $('th:nth-child(1)').toggle();
+        $('td:nth-child(1)').toggle();
+   });
 });
 
 
