@@ -13,11 +13,23 @@
 <body>
 
 <!--Button to toggle Job Form-->
-<button id="button">Run Effect</button>
+<div id="mainControlDiv">
+
+<section id="topSection" class="jobInsertForm"> 
+  <div id="whatYouWantHeader" class="tableHeader">What do you want to do?</div>
+  <div id="beginButtonDiv">
+    <button id="addJobButton" class="myButton">Add Opportunity</button>
+    <button id="deleteModifyButton" class="myButton">Delete or Modify</button>
+</div>
+</section>
+</div>
+
+
+
 
 
 <!-- The Job Form-->
-<section class="jobInsertForm">
+<section id="jIF" class="jobInsertForm">
     <div class="titulo">Add a Job</div>
         <form id ="myForm" action="#" method="post" enctype="application/x-www-form-urlencoded">
             <div class="insertSection">
@@ -63,7 +75,7 @@ $(document).ready(function(){
 
     //this will reload the table when data is added
     $("#mySave").click(function(){
-       alert("hello");
+       // alert("hello");
 
 //insert data into DB
 $("#myForm").serialize();
@@ -86,8 +98,9 @@ $("#myClear").click(function(){
 });
 
   //toggle the Job Form 
- $("#button").click(function(){
-        $(".jobInsertForm").toggle();
+ $("#addJobButton").click(function(){
+        // $(".jobInsertForm").toggle();
+        $("#jIF").toggle();
    });
 
 });

@@ -15,10 +15,17 @@ section{
     position:absolute;
 /*     right:480px; */
 }
+
+
 /*php login styling */
 .insertSection{
   position:relative;
     right:30px;
+}
+
+#jIF{
+    top:150px;
+    left:20px;
 }
 .jobInsertForm {
     width: 270px;
@@ -131,8 +138,49 @@ section{
     width:148px;
 }
 
-/*button styling*/
-.jobInsertForm form .myButton {
+
+#topSection{
+    position:absolute;
+    height:118px;
+    right:950px;
+    width:303px;
+    bottom: 32px;
+    top: -33px;
+    left: 11px;
+}
+
+#mainControlDiv{
+    position:fixed;
+}
+#whatYouWantHeader{
+    position:fixed;
+    top:19px;
+    left:12px;
+}
+#beginButtonDiv{
+position:fixed;
+width:280px;
+height:70px;
+left:27px;
+top: 50px;
+}
+/*button styling for Add, Delete and Modify Opportunity*/
+#addJobButton{
+position:relative;
+height:50px;
+top:20px;
+}
+
+#deleteModifyButton{
+position:relative;
+height:50px;
+top:20px;
+}
+
+
+/*button styling for SAVE and CLEAR*/
+/*originally here --> .jobInsertForm form .myButton*/
+.myButton {
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -150,7 +198,8 @@ section{
     border:1px solid #dcdcdc;
     display:inline-block;
     cursor:pointer;
-    color:#777777;
+    /*color:#777777;*/
+    color:black;
     font-family:Arial;
     font-size:15px;
     font-weight:bold;
