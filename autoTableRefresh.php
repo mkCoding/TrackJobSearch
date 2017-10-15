@@ -1,7 +1,10 @@
 <?php
-$server = mysql_connect("localhost","root", "test");
-$db =  mysql_select_db("test");
-$query = mysql_query("select * from job_opportunities");
+// $server = mysql_connect("localhost","root", "test");
+ $mysqli = new mysqli("localhost", "root", "test", "jobtrackingdb");
+// $db =  mysql_select_db("jobtrackingdb");
+// $query = mysql_query("select * from job_opportunities");
+
+ $query = $mysqli->query("SELECT * FROM job_opportunities");
 
  echo " <thead>
         <tr>
@@ -17,17 +20,17 @@ $query = mysql_query("select * from job_opportunities");
         </tr>
     </thead><tbody>\n";
 
-    while($row = mysql_fetch_array($query)){
+    while($row = $query->fetch_assoc()){
     echo "<tr>";
         echo"<td><button>delete</button>&nbsp;&nbsp;&nbsp;<button>edit</button></td>";
         echo"<td>".$row['job_id']."</td>";
-        echo"<td>".$row['account_id']."</td>";
-        echo"<td>".$row['company_name']."</td>";
+        echo"<td>".$row['user_id']."</td>";
+        echo"<td>".$row['company']."</td>";
         echo"<td>".$row['position']."</td>";
         echo"<td>".$row['description']."</td>";
         echo"<td>".$row['status']."</td>";
         echo"<td>".$row['location']."</td>";
-        echo"<td>".$row['recruiter_staffing']."</td>";
+        echo"<td>".$row['recruiter_company']."</td>";
     echo "</tr>";
 }
 
